@@ -235,7 +235,7 @@ const App = () => {
     blurOnLowClarity = false,
   ) => (
     <section
-      className={`rounded-[1.45rem] border border-slate-300/70 bg-white/72 p-4 shadow-[0_18px_45px_-34px_rgba(15,23,42,0.9)] backdrop-blur-md transition-all duration-[420ms] ${blurOnLowClarity ? "task-section-blur" : ""}`}
+      className={`panel-rise rounded-[1.45rem] border border-slate-300/70 bg-white/74 p-4 shadow-[0_18px_45px_-34px_rgba(15,23,42,0.9)] backdrop-blur-md transition-all duration-[420ms] ${blurOnLowClarity ? "task-section-blur" : ""}`}
       key={title}
     >
       <div className="mb-3.5">
@@ -265,14 +265,18 @@ const App = () => {
 
   return (
     <div
-      className={`app-surface min-h-screen px-4 py-5 transition-all duration-[420ms] md:px-8 md:py-8 ${scoreData.flags.highAnxiety ? "anxiety-weight" : ""}`}
+      className={`app-surface min-h-screen overflow-hidden px-4 py-5 transition-all duration-[420ms] md:px-8 md:py-8 ${scoreData.flags.highAnxiety ? "anxiety-weight" : ""}`}
       style={{
         ...dynamicTheme,
         opacity: scoreData.Score < 300 ? 0.76 : 1,
       }}
     >
-      <div className="mx-auto max-w-[1240px]">
-        <header className="mb-5 rounded-[1.6rem] border border-slate-300/65 bg-white/74 px-6 py-6 shadow-[0_28px_60px_-42px_rgba(15,23,42,0.8)] backdrop-blur-sm transition-all duration-[420ms]">
+      <div aria-hidden className="bg-orb bg-orb-one" />
+      <div aria-hidden className="bg-orb bg-orb-two" />
+      <div aria-hidden className="bg-orb bg-orb-three" />
+
+      <div className="relative mx-auto max-w-[1240px]">
+        <header className="hero-panel panel-rise mb-5 rounded-[1.65rem] border border-slate-300/65 bg-white/76 px-6 py-6 shadow-[0_28px_60px_-42px_rgba(15,23,42,0.8)] backdrop-blur-sm transition-all duration-[420ms]">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">
             Behavioral Decision Engine
           </p>
@@ -289,7 +293,7 @@ const App = () => {
           </p>
         </header>
 
-        <main className="grid gap-5 lg:grid-cols-[1.08fr_0.84fr]">
+        <main className="grid items-start gap-5 lg:grid-cols-[1.08fr_0.84fr]">
           <div className="space-y-4">
             {renderSliderGroup(
               "State",

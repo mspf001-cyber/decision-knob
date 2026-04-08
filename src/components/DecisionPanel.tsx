@@ -34,7 +34,7 @@ const DecisionPanel = ({
 
   return (
     <section
-      className={`output-card sticky top-5 rounded-[1.6rem] border border-slate-300/70 bg-[linear-gradient(160deg,rgba(255,255,255,0.9),rgba(255,252,245,0.83))] px-6 py-6 shadow-[0_22px_60px_-36px_rgba(15,23,42,0.66)] backdrop-blur-md transition-all duration-[420ms] ${highDistraction ? "card-pulse" : ""}`}
+      className={`panel-rise output-card sticky top-5 rounded-[1.65rem] border border-slate-300/70 bg-[linear-gradient(164deg,rgba(255,255,255,0.92),rgba(255,251,240,0.84))] px-6 py-6 shadow-[0_24px_65px_-38px_rgba(15,23,42,0.64)] backdrop-blur-md transition-all duration-[460ms] ${highDistraction ? "card-pulse" : ""}`}
     >
       <div className="flex flex-wrap items-center gap-2.5">
         <span className="inline-flex items-center rounded-full border border-slate-300/70 bg-white/85 px-3 py-1 text-[0.76rem] font-semibold uppercase tracking-[0.08em] text-slate-600">
@@ -54,6 +54,21 @@ const DecisionPanel = ({
         Capability band: {scoreBand} • Priority index: {Math.round(priority * 100)}
         %
       </p>
+
+      <div className="mt-4 space-y-2">
+        <div className="h-2.5 overflow-hidden rounded-full bg-slate-200/90">
+          <div
+            className="h-full rounded-full bg-[linear-gradient(90deg,hsl(var(--priority-hue)_84%_45%),hsl(var(--priority-hue)_90%_58%))] transition-all duration-[420ms] ease-out"
+            style={{ width: `${Math.max(2, score / 10)}%` }}
+          />
+        </div>
+        <div className="h-1.5 overflow-hidden rounded-full bg-slate-200/80">
+          <div
+            className="h-full rounded-full bg-slate-700/65 transition-all duration-[420ms] ease-out"
+            style={{ width: `${Math.max(2, priority * 100)}%` }}
+          />
+        </div>
+      </div>
 
       {limitingFactor && (
         <p className="mt-4 rounded-xl border border-amber-200/80 bg-amber-50/75 px-3 py-2 text-sm leading-relaxed text-amber-900">
